@@ -134,10 +134,14 @@
   width: 700rpx;
   flex: 1;
   flex-direction:column; 
+  /* overflow: hidden; */
   height: 1600rpx;
   z-index: 990;
+
   box-shadow: 1px #e6ebee;
-  border-radius: 5px;  
+  /* padding: 20rpx; */
+  /* position: absolute; */
+   border-radius: 5px;  
 }
 .detail-container{
   display: block;
@@ -148,7 +152,7 @@
 }
 .talkinn{
   border-radius: 5px;  
-  background-color: white;
+   background-color: white;
   position: absolute;
   top: 70rpx;
   z-index: 100;

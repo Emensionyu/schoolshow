@@ -17,8 +17,7 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		},
-		"nodeModules": true
+		}
 	},
 	"appid": "wxfbc89a830bb2b11c",
 	"projectname": "schoolshow",

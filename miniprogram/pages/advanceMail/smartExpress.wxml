@@ -1,0 +1,79 @@
+<van-cell-group>
+  <van-field
+    value="{{ detail.OrderCode }}"
+    label="订单编号"
+    placeholder="请输入订单编号"
+    border="{{ false }}"
+    class="field"
+    name="OrderCode"
+    bind:change="onChange"
+  />
+  <van-field
+    value="{{ detail.Receiver.Name }}"
+    label="收件人"
+    placeholder="请输入收件人"
+    name="Receiver.Name"
+    bind:change="onChange"
+  />
+  <van-field
+    value="{{ detail.Receiver.Mobile }}"
+    label="收件人手机号"
+    placeholder="请输入收件人手机号"
+    bind:change="onChange"
+  />
+   <van-field
+    value="{{ detail.Receiver.ProvinceName }}"
+    label="收件省"
+    placeholder="请输入收件省"
+    bind:change="onChange"
+  />
+   <van-field
+    value="{{ detail.Receiver.CityName }}"
+    label="收件市"
+    placeholder="请输入收件市"
+    bind:change="onChange"
+  />
+  <van-field
+    value="{{ detail.Receiver.Address }}"
+    label="收件人详细地址"
+    placeholder="收件人详细地址"
+    bind:change="onChange"
+  />
+   <van-field
+    value="{{ detail.Sender.Name }}"
+    label="发件人"
+    placeholder="请输入发件人"
+    bind:change="onChange"
+  />
+   <van-field
+    value="{{ detail.Sender.Mobile }}"
+    label="发件人手机号码"
+    placeholder="请输入发件人手机号码"
+    bind:change="onChange"
+  />
+   <van-field
+    value="{{ detail.Sender.ProvinceName }}"
+    label="发件省"
+    placeholder="请输入发件省"
+    bind:change="onChange"
+  />
+   <van-field
+    value="{{ detail.Sender.CityName }}"
+    label="发件市"
+    placeholder="请输入发件市"
+    bind:change="onChange"
+  />
+  <van-field
+    value="{{ detail.Sender.Address }}"
+    label="发件人详细地址"
+    placeholder="发件人详细地址"
+    bind:change="onChange"
+  />
+   <van-field
+    value="{{ detail.Commodity.GoodsName }}"
+    label="商品名称"
+    placeholder="商品名称"
+  />
+  <view class="search" bindtap="searchCompany">开始预约取件</view>
+  <view class="code">您预约的编号是{{code}}</view>
+</van-cell-group>

@@ -328,12 +328,16 @@ const $get = (url, data = {}) => {
   //发送请求
   return new Promise((resolve, reject) => {
     wx.request({
-      url: url,
+      url:'',
+      // url: url,
       data: data,
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       // header: {}, // 设置请求的 header
       success: function (res) {
-        resolve(res)
+        resolve({'data':{'data':{'expressList':[]}}})// mock 失效伪造数据
+        // resolve(res)
+
+
       },
       fail: function () {
         reject()

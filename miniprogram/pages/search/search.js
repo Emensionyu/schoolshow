@@ -1,3 +1,5 @@
+// pages/search/index.js
+// import { Base64,md5} from '../../utils/util'
 var util = require('../../utils/util.js')
 const db = wx.cloud.database()
 const expresses = db.collection('expresses')
@@ -202,6 +204,12 @@ Page({
       url: '../selectCompany/selectCompany',
     })
   },
+  onCancel(event) {
+    wx.showToast({
+      title: '取消',
+      icon: 'none'
+    })
+  },
   onCancel() { // 点击拒绝
     let dialogComponent = this.selectComponent('.wxc-dialog');
     dialogComponent && dialogComponent.hide();
@@ -230,6 +238,29 @@ Page({
 
     this.showHistory();
 
+  },
+  delectoneHistory(event) {
+    console.log(event);
+    let code = event.currentTarget.dataset.code;
+    console.log(code);
+    let list = wx.getStorageSync("historys") || [];
+    if (list.length == 1) {
+      this.delectHistory();
+    }
+    for (let i = 0; i < list.length; i++) {
+      if (list[i].code = code) {
+        list.splice(i, 1);
+        break;
+      }
+    }
+    console.log(list);
+    wx.setStorage({
+      key: 'historys',
+      data: list,
+    })
+    this.setData({
+      historyList: list
+    })
   },
   /**
    * 生命周期函数--监听页面加载

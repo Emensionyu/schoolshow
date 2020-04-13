@@ -1,18 +1,20 @@
 {
   "cloud": true,
   "pages": [
+    
     "pages/index/index",
-    "pages/analysis/analysis",
+    "pages/introduce/sendPackage",
     "pages/Todetail/index",
     "pages/search/search",
     "pages/selectCompany/selectCompany",
-    "pages/webview/webview"
+    "pages/advanceMail/smartExpress"
+    
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "物流查询和购物分析",
+    "navigationBarTitleText": "LS小程序",
     "navigationBarTextStyle": "black",
     "selectedColor": "#3182d4"
   },
@@ -22,13 +24,21 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "物流查询",
+        "text": "首页",
         "iconPath": "images/icon/icon_home.png",
         "selectedIconPath": "images/icon/icon_home_hl.png"
       },
       {
-        "pagePath": "pages/analysis/analysis",
-        "text": "购物分析",
+        "pagePath": "pages/advanceMail/smartExpress",
+        "text": "预约寄件",
+        "iconPath": "images/icon/icon_travel.png",
+        "selectedIconPath": "images/icon/icon_travel_hl.png",
+        "selectedColor": "blue",
+        "selectColor": "blue"
+      },
+      {
+        "pagePath": "pages/introduce/sendPackage",
+        "text": "快递介绍",
         "iconPath": "images/icon/icon_my.png",
         "selectedIconPath": "images/icon/icon_my_hl.png"
       }

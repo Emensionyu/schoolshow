@@ -1,0 +1,7 @@
+/* miniprogram/pages/smartExpress/smartExpress.wxss */
+.field{
+    margin-bottom: 20px;
+}
+.search .code{
+    margin: 20px;
+}

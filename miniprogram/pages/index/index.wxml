@@ -1,7 +1,21 @@
 <view class="container">
+  <view class='search-text'> 搜索你要查的快递~~</view>
   <van-search class="van-search" value="{{ value }}" placeholder="请输入拼音缩写或中文"               background="#ffffff" bindtap="searchAnother" />
-  <text class="search-message">最近物流记录</text>
-<loading hidden="{{isLoading}}"></loading>
+  <view class="weui-tabbar">
+    <!-- <icon href="#" class="weui-tabbar__item weui-tabbar__item_on">
+      <icon>
+        <image mode="aspectFit" src="https://636c-cloud-912718-1257892962.tcb.qcloud.la/images2/saoma.jpg?sign=22ecf7d2269084181e8ace24c1319b06&t=1542775996" alt="" class="weui-tabbar__icon"></image>
+      </icon>
+      <icon class="weui-tabbar__label" bindtap='scanCode'>扫一扫</icon>
+    </icon> -->
+  </view>
+  <!-- <swiper class="ad" indicator-dots='true' indicator-active-color='blue' autoplay='true'>
+    <swiper-item wx:for="{{imageList}}" wx:key="index" wx:for-item="item">
+      <image src="{{item.pic}}" mode="widthFix" bind:tap="tapImage" class='ad-img'></image>
+    </swiper-item>
+  </swiper> -->
+  
+  <loading hidden="{{isLoading}}"></loading>
 <scroll-view class='scroll-view' scroll-y="true">
 <view class='package-item'  wx:for="{{expressLists}}" wx:key="{{item.contentId}}"
  wx:for-item="item" data-contentId='{{item.text3}}' bindtap='toDetail'>

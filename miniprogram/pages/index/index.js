@@ -15,11 +15,28 @@ Page({
       pageSize: 4,
       isLoading:false,
       bottomshow:false,
+
+     
     },
+  scanCode: function () {
+    wx.scanCode({
+      onlyFromCamera: true,
+      scanType: ['barCode'],
+      success: res => {
+        console.log('hhhh');
+        wx.showToast({
+          title: '数据加载中...',
+          icon: 'loading',
+          duration: 1000
+        });
+      }
+    })
+  },
   tapImage:function(){
     wx.navigateTo({
       url: '../game/game'
     })
+
   },
   searchAnother:function(){
     wx.navigateTo({
@@ -30,15 +47,29 @@ Page({
     this.initSwiper();
     this.getList('down')
   },
+ 
+  toDetail(e){
+    console.log(e);
+    let codeExpress=e.currentTarget.dataset.contentid;
+    console.log(codeExpress);
+    // let item=dataset.item;
+    // let contentId=item.contentId||0;
+    
+    wx.navigateTo({
+      url: `../Todetail/index?contentId=${codeExpress}`,
+    })
+
+  },
   getList(type) {
     this.setData({
     isLoading: true,
       hasMore: true
     })
     type === 'down' ? this.setData({ page: 0 }) : null;
-    util.$get('http://yapi.demo.qunar.com/mock/85250/search').then(res => {
+    util.$get('https://www.easy-mock.com/mock/5bca919de6742c1bf8220b50/example/express#!method=get').then(res => {
+
       if (res.statusCode == 200) {
-        this.processData(type, res.data)
+        this.processData(type, res.data.data.expressList)
       }
     }).catch(e => {
       this.setData({
@@ -48,7 +79,9 @@ Page({
       wx.stopPullDownRefresh()
       wx.showToast({ title: `网络错误!`, duration: 1000, icon: "none" })
     })
+ 
   },
+ 
   processData(type, list) {
     if (list.length) {
       if (type === 'up') { // 上拉处理
@@ -83,7 +116,11 @@ Page({
 
   },
   initSwiper() {
-    util.$get('http://yapi.demo.qunar.com/mock/85250/search',{}).then(res => {
+    util.$get(`https://www.easy-mock.com/mock/5bca919de6742c1bf8220b50/example/express#!method=get`,{}).then(res => {
+      console.log(res)
+      console.log(res.statusCode)
+      console.log(res.data.data)
+      
       if (res.statusCode==200) {
         this.setData({
           expressLists:res.data.data.expressList
@@ -92,10 +129,13 @@ Page({
     }).catch(e => {
       wx.showToast({ title: `网络错误!`, duration: 1000, icon: "none" })
     })
+  
   },
   onPullDownRefresh() {
     this.getList('down')
     this.initSwiper() // 加载轮播图
+
+
   },
   onReachBottom() {
     if (!this.data.isLoading) { // 防止数据还没回来再次触发加载
@@ -103,13 +143,17 @@ Page({
     }
     if(this.data.page<=3){
       this.getList('up')
+
     }else{
       wx.stopPullDownRefresh()
       this.setData({
         bottomshow:true
+
       })
     }
-    
+   
+   
+     
     
   },
   

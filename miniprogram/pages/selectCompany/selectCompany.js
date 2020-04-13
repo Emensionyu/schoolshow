@@ -54,6 +54,7 @@ Page({
         curIndex: e.currentTarget.dataset.index,
         toView: "F",
       })
+
     }
     this.setData({
       curIndex:e.currentTarget.dataset.index,

@@ -24,7 +24,7 @@
       <view class='history-item' wx:for="{{historyList}}" wx:key="{{index}}">
         <view class='item-num'>{{item.code}}</view>
         <view class='item-text'>{{item.company}}</view>
-        <image class='item-image' mode='aspectFit' src='https://636c-cloud-912718-1257892962.tcb.qcloud.la/x.jpg?sign=bb8c49b8a64bb0ad1d05ccd9336f4617&t=1586673743' data-code='{{item.code}}' bindtap='delectoneHistory'></image>
+        <image class='item-image' mode='aspectFit' src='../../images/x.jpg' data-code='{{item.code}}' bindtap='delectoneHistory'></image>
       </view>
       <view class='clear-history' bindtap='onSHowdialog'>{{delectHistory}}</view>
       <wxc-dialog class="wxc-dialog" title="确认全部清除" bindcancel="onCancel" bindconfirm="delectHistory"></wxc-dialog>
