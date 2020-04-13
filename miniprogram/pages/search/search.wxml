@@ -1,0 +1,33 @@
+<view class='largecontainer'>
+  <view class='container'>
+    <van-search class="search-top" value="{{value}}" placeholder="请输入运单号" use-action-slot bind:change="onChange" bind:search="onSearch">
+      <view slot="action" bindtap="cancel">取消</view>
+    </van-search>
+    <view class='search-middle' bindtap='selectCompany'>
+      <image class='car' src='{{src}}' mode='aspectfit'></image>
+      <text class='middle-text'>{{company}}</text>
+    </view>
+    <view class="dr">
+      <image class='dr-img' src='https://636c-cloud-912718-1257892962.tcb.qcloud.la/images2/dr.jpg?sign=8fa530125c0e20b0a6f9b0a39a5afae6&t=1542885013' mode='aspectfit'></image>
+    </view>
+    <view class='save-list'>
+      <text class='save-text'>保存到包裹列表</text>
+      <van-switch class='save-switch' bind:tap="onChangeswitch" checked="{{checked}}" size="110%" active-color="#4b0" inactive-color="#f44"></van-switch>
+    </view>
+    <view class='search-bottom' bindtap="getExpressInfo" data-number='{{no}}' data-name='{{no}}'>
+      查询
+    </view>
+  </view>
+  <scroll-view scroll-y class='scroll-view'>
+    <view class='history'>
+      <view class='history-text'>{{historyOrder}}</view>
+      <view class='history-item' wx:for="{{historyList}}" wx:key="{{index}}">
+        <view class='item-num'>{{item.code}}</view>
+        <view class='item-text'>{{item.company}}</view>
+        <image class='item-image' mode='aspectFit' src='https://636c-cloud-912718-1257892962.tcb.qcloud.la/x.jpg?sign=bb8c49b8a64bb0ad1d05ccd9336f4617&t=1586673743' data-code='{{item.code}}' bindtap='delectoneHistory'></image>
+      </view>
+      <view class='clear-history' bindtap='onSHowdialog'>{{delectHistory}}</view>
+      <wxc-dialog class="wxc-dialog" title="确认全部清除" bindcancel="onCancel" bindconfirm="delectHistory"></wxc-dialog>
+    </view>
+  </scroll-view>
+</view>

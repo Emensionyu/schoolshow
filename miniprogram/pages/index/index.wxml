@@ -1,0 +1,20 @@
+<view class="container">
+  <van-search class="van-search" value="{{ value }}" placeholder="请输入拼音缩写或中文"               background="#ffffff" bindtap="searchAnother" />
+  <text class="search-message">最近物流记录</text>
+<loading hidden="{{isLoading}}"></loading>
+<scroll-view class='scroll-view' scroll-y="true">
+<view class='package-item'  wx:for="{{expressLists}}" wx:key="{{item.contentId}}"
+ wx:for-item="item" data-contentId='{{item.text3}}' bindtap='toDetail'>
+     <view class='item-wrapper'> 
+      <text class='item-title'>{{item.text1}}</text>
+      <image class='item-img' mode='aspectFill' src='{{item.image}}'></image>
+      <view class="item-block">
+        <text class='item-text1'>{{item.text2}}</text>
+        <text class='item-text2'>{{item.text3}}</text>
+        <text class='item-text3'>{{item.text4}}</text>
+      </view>
+      </view>
+    </view>
+  <text class='{{bottomshow== true? "bottomshow":"hide"}}' bindtap='watchMore'>查看全部</text>
+  </scroll-view>
+</view>

@@ -1,0 +1,3 @@
+<web-view src="{{url}}"></web-view>
+<!-- <text>jjjj</text> -->
+<!-- <web-view src="https://mp.weixin.qq.com/"></web-view> -->
