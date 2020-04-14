@@ -1,1 +1,14 @@
 /* miniprogram/pages/sendPackage/sendPackage.wxss */
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title{
+    font-size: 22px;
+    margin: 20px;
+
+}
+.content{
+    margin:20px
+}

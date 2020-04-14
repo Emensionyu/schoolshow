@@ -30,12 +30,13 @@ Page({
           Address: "安徽省阜阳市太和县坟台镇街上"
         },
         Commodity: [{
-          GoodsName: "",
+          GoodsName: "鞋子",
           Goodsquantity: 1,
           GoodsWeight: 1.0
         }],
     },
-    code:''
+    code:'',
+    order:{}
   },
 
   /**
@@ -116,7 +117,8 @@ Page({
       method: 'POST',
       success: (res) => {
         this.setData({
-          code:res.data.Order.OrderCode
+          code:res.data.Order.OrderCode,
+          order:res.data.Order
         })
       }
     })
@@ -126,6 +128,36 @@ Page({
     this.data.detail[key]=obj.detail.value
     this.setData({
       detail
+    })
+  },
+  cancel(){
+    const { ShipperCode,OrderCode,LogisticCode}=this.data.order
+    const paramsData={ ShipperCode,OrderCode,LogisticCode }
+    var RequestData = JSON.stringify(paramsData)
+    var DataSign = encodeURI(util.Base64((util.md5(RequestData + '9028a00c-e9da-494d-a9ca-68b519c9d34a'))))
+    wx.request({
+      url: 'http://api.kdniao.com/api/EOrderService',
+      data: {
+        //数据内容(进行过url编码)
+        'RequestData': RequestData,
+        //电商ID
+        'EBusinessID': '1618269',
+        //请求指令类型：1004
+        'RequestType': '1004',
+        //数据内容签名把（请求内容（未编码）+ApiKey）进行MD5加密，然后Base64编码，最后进行URL（utf-8）编码
+        'DataSign': DataSign,
+        //请求、返回数据类型： 2-json；
+        'DataType': '2',
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      },
+      method: 'POST',
+      success: (res) => {
+        this.setData({
+          code:res.data.Order.OrderCode
+        })
+      }
     })
   }
 })

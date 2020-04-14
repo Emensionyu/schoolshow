@@ -76,4 +76,5 @@
   />
   <view class="search" bindtap="searchCompany">开始预约取件</view>
   <view class="code">您预约的编号是{{code}}</view>
+  <button class="cancel" bindtap="cancel">点击取消预约</button>
 </van-cell-group>
