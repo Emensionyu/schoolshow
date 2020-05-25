@@ -47,7 +47,7 @@ Page({
 
  searchOrder(){
   wx.request({
-    url: 'http://172.18.77.17:8080/order',
+    url: 'http://192.168.124.8:8080/order',
     success:res=>{
       const { mainOrder }=res.data
       this.calcOrders(mainOrder)

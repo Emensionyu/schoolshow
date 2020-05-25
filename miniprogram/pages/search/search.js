@@ -69,7 +69,7 @@ Page({
     expresses.where({
       code: exp
     }).get().then(res=>{
-      if(res.data.Traces){
+      if(res.data[0].message.Traces){
         wx.navigateTo({
           url: '../Todetail/index',
         })

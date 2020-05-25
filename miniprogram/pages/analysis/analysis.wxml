@@ -8,7 +8,7 @@
     <view class="order-money">hi 你总共花了
         <view class='data'> {{money}}</view>
    </view>
-    <view class="comment">你可真是个败家娘们</view>
+    <!-- <view class="comment">你可真是个败家娘们</view> -->
 </view>
 <view class="chart" bindtap="toChart">
 点击查看2016-2020花钱分析

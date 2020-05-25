@@ -83,6 +83,7 @@ Page({
     expresses.where({
       code:code
     }).get().then(res=>{
+      debugger
       this.setData({
       tracesList:res.data,
       Traces:res.data[0].message.Traces

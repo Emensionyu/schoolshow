@@ -36,18 +36,18 @@ Page({
       hasMore: true
     })
     type === 'down' ? this.setData({ page: 0 }) : null;
-    util.$get('http://yapi.demo.qunar.com/mock/85250/search').then(res => {
-      if (res.statusCode == 200) {
-        this.processData(type, res.data)
-      }
-    }).catch(e => {
-      this.setData({
-        isLoading: true,
-        hasMore: false
-      })
-      wx.stopPullDownRefresh()
-      wx.showToast({ title: `网络错误!`, duration: 1000, icon: "none" })
-    })
+    // util.$get('http://yapi.demo.qunar.com/mock/85250/search').then(res => {
+    //   if (res.statusCode == 200) {
+    //     this.processData(type, res.data)
+    //   }
+    // }).catch(e => {
+    //   this.setData({
+    //     isLoading: true,
+    //     hasMore: false
+    //   })
+      // wx.stopPullDownRefresh()
+    //   wx.showToast({ title: `网络错误!`, duration: 1000, icon: "none" })
+    // })
   },
   processData(type, list) {
     if (list.length) {
@@ -83,15 +83,15 @@ Page({
 
   },
   initSwiper() {
-    util.$get('http://yapi.demo.qunar.com/mock/85250/search',{}).then(res => {
-      if (res.statusCode==200) {
-        this.setData({
-          expressLists:res.data.data.expressList
-        })
-      }
-    }).catch(e => {
-      wx.showToast({ title: `网络错误!`, duration: 1000, icon: "none" })
-    })
+    // util.$get('http://yapi.demo.qunar.com/mock/85250/search',{}).then(res => {
+    //   if (res.statusCode==200) {
+    //     this.setData({
+    //       expressLists:res.data.data.expressList
+    //     })
+    //   }
+    // }).catch(e => {
+    //   wx.showToast({ title: `网络错误!`, duration: 1000, icon: "none" })
+    // })
   },
   onPullDownRefresh() {
     this.getList('down')
